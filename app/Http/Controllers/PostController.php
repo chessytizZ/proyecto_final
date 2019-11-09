@@ -11,7 +11,7 @@ class PostController extends Controller
     public function __construct(){
         $this->middleware('auth');
     }
-    
+
     public function individual($id)
     {
         $post = Post::find($id);
@@ -30,7 +30,7 @@ class PostController extends Controller
         $post->title = $request->input('nombre');//se le asigno el nombre recibido del formulario
 
         $post->body = $request->input('contenido');//se le asigno el contenido recibido del formulario
-        
+
         $post->user_id =  \Auth::user()->id;
 
         $post->save();//se registro el nuevo post
@@ -39,7 +39,7 @@ class PostController extends Controller
 
         $genero->posts()->save($post);
 
-        return view('inicio');
+        return redirect()->route('succes', ['message' => 'El post se ha creado exitosamente']);
     }
 
     public function editar_form($id){
@@ -54,9 +54,9 @@ class PostController extends Controller
             'post' => $post,
             'generos' => $genero
         ];
-        
+
         return view ('form_editar_post',$parametros);
-        
+
     }
 
     public function editar(Request $request){
@@ -64,11 +64,11 @@ class PostController extends Controller
         $post = Post::find($request->input('id'));
 
         $this->authorize('owner',$post);
-        
+
         $post->title = $request->input('nombre');
-        
+
         $post->body = $request->input('contenido');
-        
+
         $post->save();
 
         if($request->input('genero_anterior') != "nulo"){
@@ -79,9 +79,9 @@ class PostController extends Controller
         $genero_nuevo = Genero::find( $request->input('genero'));
 
         $genero_nuevo->posts()->save($post);
-        
-        return view('inicio');
-        
+
+        return redirect()->route('succes', ['message' => 'El post se ha editado exitosamente']);
+
     }
 
     public function eliminar($id)
@@ -91,6 +91,6 @@ class PostController extends Controller
         $genero = Genero::find($post->generos[0]->id);
         $genero->posts()->detach($post);
         $post->delete();
-        return view('inicio');
+        return redirect()->route('succes', ['message' => 'El post se ha eliminado exitosamente']);
     }
 }

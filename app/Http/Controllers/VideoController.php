@@ -12,7 +12,7 @@ class VideoController extends Controller
     public function __construct(){
         $this->middleware('auth');
     }
-    
+
     public function individual($id)
     {
         $video = Video::find($id);
@@ -39,7 +39,7 @@ class VideoController extends Controller
 
         $genero->posts()->save($video);
 
-        return view('inicio');
+        return redirect()->route('succes',['message' => 'El video se ha creado exitosamente']);
     }
 
     public function editar_form($id)
@@ -53,7 +53,7 @@ class VideoController extends Controller
         ];
 
         return view ('form_editar_video',$parametros);;
-        
+
     }
 
     public function editar(Request $request)
@@ -61,13 +61,13 @@ class VideoController extends Controller
         $video = Video::find($request->input('id'));
 
         $this->authorize('owner',$video);
-        
+
         $video->title = $request->input('nombre');
-        
+
         $video->url = $request->input('url');
-        
+
         $video->save();
-        
+
         if($request->input('genero_anterior') != "nulo"){
             $genero = Genero::find( $request->input('genero_anterior') );
             $genero->videos()->detach($video);
@@ -76,9 +76,9 @@ class VideoController extends Controller
         $genero_nuevo = Genero::find( $request->input('genero'));
 
         $genero_nuevo->videos()->save($video);
-        
-        return view('inicio');
-        
+
+        return redirect()->route('succes', ['message' => 'El video se ha editado exitosamente']);
+
     }
 
 
@@ -88,6 +88,6 @@ class VideoController extends Controller
         $genero = Genero::find($video->generos[0]->id);
         $genero->posts()->detach($video);
         $video->delete();
-        return view('inicio');
+        return redirect()->route('succes', ['message' => 'El video se ha eliminado exitosamente']);
     }
 }

@@ -11,14 +11,14 @@ class GeneroController extends Controller
     public function __construct(){
         $this->middleware('auth');
     }
-    
+
     public function register(Request $request)
     {
 
         $genero = new Genero;
         $genero->type = $request->input('nombre');
         $genero->save();
-        return view('inicio');
+        return redirect()->route('succes', ['message' => 'El genero se ha creado exitosamente']);
     }
 
     public function editar_form($id){
@@ -29,19 +29,19 @@ class GeneroController extends Controller
         ];
 
         return view ('form_editar_genero',$parametros);
-        
+
     }
 
     public function editar(Request $request){
 
         $genero = Genero::find($request->input('id'));
-        
+
         $genero->type = $request->input('nombre');
-        
+
         $genero->save();
-        
-        return view('inicio');
-        
+
+        return redirect()->route('succes', ['message' => 'El genero se ha editado exitosamente']);
+
     }
 
     public function eliminar($id){
@@ -50,6 +50,6 @@ class GeneroController extends Controller
         $genero->videos()->detach();
         $genero->delete();
 
-        return view('inicio');
+        return redirect()->route('succes', ['message' => 'El genero se ha eliminado exitosamente']);
     }
 }

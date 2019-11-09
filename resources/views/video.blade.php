@@ -53,7 +53,7 @@ td{
                     @endforeach
                 </p>
 
-                <a class="btn btn-dark btn-lg" href="/tareados" role="button">Volver</a>
+                <a class="btn btn-dark btn-lg" href="/inicio" role="button">Volver</a>
         </div>
 
 
