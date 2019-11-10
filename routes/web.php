@@ -56,3 +56,5 @@ Route::get('/genero/editar/{id}', 'GeneroController@editar_form')->name('genero'
 Route::get('/post/eliminar/{id}', 'PostController@eliminar')->name('post');
 Route::get('/video/eliminar/{id}', 'VideoController@eliminar')->name('video');
 Route::get('/genero/eliminar/{id}', 'GeneroController@eliminar')->name('genero')->middleware("admin");
+
+Route::get('/post/pdf', 'PdfController@donwloadPdf')->name('pdf');

@@ -51,7 +51,7 @@ td{
                     </span>
                     @endforeach
                 </p>
-
+                <a href="/post/pdf" class="btn btn-outline-success mb-2">generar pdf</a>
                 <a class="btn btn-dark btn-lg" href="/inicio" role="button">Volver</a>
         </div>
 </body>
