@@ -35,7 +35,7 @@
             left:50%;
         }
         </style>
-  <div class="padre">
+  <div class="padre mt-4 mx-4 px-4">
       <form action="/video" method="POST">
           @csrf
           <input type="hidden" name="_method" value="put" />
@@ -75,7 +75,8 @@
 
   </div>
 
-
-
+  <div class="mt-4 ml-4 pr-4">
+  <a class="btn btn-dark btn-lg" href="/inicio" role="button">Volver</a>
+  </div>
 </body>
 </html>

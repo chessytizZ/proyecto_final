@@ -68,7 +68,7 @@
     </tbody>
 
   </table>
+  <a class="btn btn-dark btn-lg" href="/inicio" role="button">Volver</a>
   </div>
-
 </body>
 </html>

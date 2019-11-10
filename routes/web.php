@@ -18,6 +18,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/post/pdf', 'PostController@exportPdf')->name('post');
+Route::get('/video/pdf', 'VideoController@exportPdf')->name('post');
+
 Route::get('/post', function () {
     return view('formulario_post');
 });
@@ -34,6 +38,7 @@ Route::get('/register', 'Auth\RegisterController@showRegistrationForm')->name('r
 Route::post('/register', 'Auth\RegisterController@register')->name('register');
 
 Route::get('/inicio', 'InicioController@index')->name('inicio');
+Route::get('/succes/{message}', 'InicioController@succes')->name('succes');
 Route::post('/inicio', 'InicioController@action')->name('inicio');
 Route::get('/tareados', 'TareadosController@create')->name('tareados');
 Route::get('/video/{id}', 'VideoController@individual')->name('video');

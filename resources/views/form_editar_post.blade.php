@@ -15,7 +15,7 @@
 
 <body>
 
-  <div class="padre">
+        <div class="padre mt-4 mx-4 p-4">
       <form action="/post" method="POST">
           @csrf
           <input type="hidden" name="_method" value="put" />
@@ -49,6 +49,8 @@
         </form>
 
   </div>
-
+  <div class=" mt-4 ml-4 pr-4">
+  <a class="btn btn-dark btn-lg" href="/inicio" role="button">Volver</a>
+  </div>
 </body>
 </html>

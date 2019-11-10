@@ -16,7 +16,33 @@ class InicioController extends Controller
 
     public function index()
     {
-        return view('inicio');
+        $post = Post::all();
+        $video = Video::all();
+        $genero = Genero::all();
+
+        $parametros = [
+            'posts' => $post,
+            'videos' => $video,
+            'generos' => $genero
+        ];
+
+        return view('inicio' , $parametros );
+    }
+    
+    public function succes($message)
+    {
+        dump($message);
+        $post = Post::all();
+        $video = Video::all();
+        $genero = Genero::all();
+
+        $parametros = [
+            'posts' => $post,
+            'videos' => $video,
+            'generos' => $genero
+        ];
+
+        return view('inicio' , $parametros );
     }
 
     public function action(Request $request){
@@ -28,7 +54,7 @@ class InicioController extends Controller
                 switch($request->input('entidad')){
 
                     case 'post':
-                    
+
                         $genero = Genero::all();
 
                         $parametros = [
@@ -36,7 +62,7 @@ class InicioController extends Controller
                         ];
 
                         return view('formulario_post', $parametros );
-                        
+
                         break;
 
                     case 'video':
@@ -58,27 +84,27 @@ class InicioController extends Controller
             case 'editar':
                 switch($request->input('entidad')){
                     case 'post':
-                    
-                        $post = Post::all();
+                        $id_user = \Auth::user()->id;
+                        $post = Post::where('user_id',$id_user)->get();
 
                         $parametros = [
                             'posts' => $post
                         ];
                         return view('editar_post', $parametros );
-                        break;                    
-                    
+                        break;
+
                     case 'video':
-                    
-                        $video = Video::all();
+                        $id_user = \Auth::user()->id;
+                        $video = Video::where('user_id',$id_user)->get();
 
                         $parametros = [
                             'videos' => $video
                         ];
                         return view('editar_video', $parametros );
                         break;
-                        
+
                     case 'genero':
-                    
+
                         $genero = Genero::all();
 
                         $parametros = [
@@ -92,27 +118,27 @@ class InicioController extends Controller
             case 'eliminar':
                 switch($request->input('entidad')){
                     case 'post':
-                    
-                        $post = Post::all();
+                         $id_user = \Auth::user()->id;
+                        $post = Post::where('user_id',$id_user)->get();
 
                         $parametros = [
                             'posts' => $post
                         ];
                         return view('eliminar_post', $parametros );
-                        break;                    
-                    
+                        break;
+
                     case 'video':
-                    
-                        $video = Video::all();
+                        $id_user = \Auth::user()->id;
+                        $video = Video::where('user_id',$id_user)->get();
 
                         $parametros = [
                             'videos' => $video
                         ];
                         return view('eliminar_video', $parametros );
                         break;
-                        
+
                     case 'genero':
-                    
+
                         $genero = Genero::all();
 
                         $parametros = [

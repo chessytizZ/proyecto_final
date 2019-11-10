@@ -1,28 +1,16 @@
 .padre{
-    position: relative;
-    display: flex;
-    margin-left: 27%;
-    background-image: url("descarga.jpg");
-    width: 250px;
-    height: 455px;
-    top: 90px;
+    background-color:gainsboro  ;
     }
 
     form{
-    top: 18px;
-    position: relative;
-    margin-left: 20px;
     font-family: 'Big Shoulders Display', cursive;
     font-size: 25px;
     }
 
     button{
-        position: relative;
-        left: 58px;
         background-color: rgb(91, 118, 158);
-        top: 10px;
     }
     body{
-        background-image: url("cheshire-cat-hd-wallpapers-27-1400x720.jpg");
+        background-color: gray!important;
     }
 
