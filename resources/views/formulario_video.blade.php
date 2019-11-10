@@ -35,7 +35,8 @@
             left:50%;
         }
         </style>
-  <div class="padre">
+  <div class="container mt-4">
+      <div class="padre px-4">
       <form action="/video" method="POST">
           @csrf
           <label for="exampleFormControlSelect1">Titulo del video </label>
@@ -62,11 +63,9 @@
 
           <button type="submit" class="btn">Crear</button>
         </form>
+    </div>
 
-
+  <a class="btn btn-dark btn-lg mt-4" href="/inicio" role="button">Volver</a>
   </div>
-
-  <a class="btn btn-dark btn-lg" href="/inicio" role="button">Volver</a>
-
 </body>
 </html>

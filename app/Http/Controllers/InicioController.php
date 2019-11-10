@@ -28,7 +28,6 @@ class InicioController extends Controller
 
         return view('inicio' , $parametros );
     }
-    
     public function succes($message)
     {
         dump($message);
@@ -87,6 +86,8 @@ class InicioController extends Controller
                         $id_user = \Auth::user()->id;
                         $post = Post::where('user_id',$id_user)->get();
 
+                        $post = Post::all();
+
                         $parametros = [
                             'posts' => $post
                         ];
@@ -96,6 +97,8 @@ class InicioController extends Controller
                     case 'video':
                         $id_user = \Auth::user()->id;
                         $video = Video::where('user_id',$id_user)->get();
+
+                        $video = Video::all();
 
                         $parametros = [
                             'videos' => $video
@@ -121,6 +124,8 @@ class InicioController extends Controller
                          $id_user = \Auth::user()->id;
                         $post = Post::where('user_id',$id_user)->get();
 
+                        $post = Post::all();
+
                         $parametros = [
                             'posts' => $post
                         ];
@@ -130,6 +135,8 @@ class InicioController extends Controller
                     case 'video':
                         $id_user = \Auth::user()->id;
                         $video = Video::where('user_id',$id_user)->get();
+
+                        $video = Video::all();
 
                         $parametros = [
                             'videos' => $video

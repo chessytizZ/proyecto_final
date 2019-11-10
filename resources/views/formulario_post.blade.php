@@ -14,8 +14,8 @@
 </head>
 
 <body>
-
-  <div class="padre">
+  <div class="container mt-4">
+  <div class="padre p-4">
       <form action="/post" method="POST">
           @csrf
           <label for="exampleFormControlSelect1">Nombre del post </label>
@@ -45,7 +45,7 @@
 
   </div>
 
-  <a class="btn btn-dark btn-lg" href="/inicio" role="button">Volver</a>
-
+    <a class="btn btn-dark btn-lg mt-4" href="/inicio" role="button">Volver</a>
+    </div>
 </body>
 </html>

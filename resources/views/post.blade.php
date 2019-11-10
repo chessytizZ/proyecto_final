@@ -51,7 +51,6 @@ td{
                     </span>
                     @endforeach
                 </p>
-
                 <a class="btn btn-dark btn-lg" href="/inicio" role="button">Volver</a>
         </div>
 </body>

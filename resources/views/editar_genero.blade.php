@@ -38,6 +38,7 @@
 </head>
 
 <body>
+    <div class="container">
         <div class="lol col-md-7 ">
                 <table class="table ">
 
@@ -66,5 +67,6 @@
                   </table>
                   <a class="btn btn-dark btn-lg" href="/inicio" role="button">Volver</a>
                 </div>
+    </div>
 </body>
 </html>

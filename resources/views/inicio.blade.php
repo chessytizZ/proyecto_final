@@ -84,6 +84,7 @@ td{
             <div>
         </form>
           <a href="/logout" type="submit" class="btn btn-danger p-5 mt-5">Salir sesion</a>
+
             </div>
 
     </div>
@@ -147,7 +148,8 @@ td{
     </tbody>
 
   </table>
-      <a href="/video/pdf" class="btn btn-primary mb-4">Generar pdf de mis videos</a>
+  <a href="/video/pdf" class="btn btn-primary mb-4">Generar pdf de mis videos</a>
+
 </div>
 <div class="lol ">
   <table class="table ">
